@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Example: button modifies a variable</h3>
+<p>Variable "x" equals</p>
+<p id="output"></p>
+
+<button onclick=addOne()>Add 1 to x</button>
+
+<script>
+var x = 0;
+updateOutput();
+
+function addOne() {
+  x = x + 1;
+  updateOutput();
+}
+function updateOutput() {
+  document.getElementById("output").innerHTML = x;
+}
+</script>
+
+<h3>References</h3>
+<p>This example uses concepts from:</p>
+<ul>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_output.asp">JavaScript Output</a></li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_functions.asp">JavaScript Functions</a></li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_scope.asp">JavaScript Scope</a> of variables</li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_events.asp">JavaScript Events</a> with buttons</li>
+</ul>
+
+</body>
+</html>
