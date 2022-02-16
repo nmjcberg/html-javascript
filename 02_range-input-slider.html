@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .sliderValue { 
+    font-weight: bold; 
+    font-family: Arial;
+    font-size: 24px;
+  }
+  .code {
+    font-family: Courier;
+    font-size: 90%;
+  }
+  div {
+    border: solid blue 2px;
+    width: 400px;
+    margin: 5px;
+    padding-left: 10px;
+  }
+  </style>
+</head>
+<body>
+
+<h3>Example: Slider (<span class="code">input</span> element with <span class="code">type="range"</span>)</h3>
+
+<div>
+  <p>This input element uses the "onmousemove" event attribute</p>
+  <input id="slider1" type="range" onmousemove=updateOutput()>
+  <span id="output1" class="sliderValue"><span>
+</div>
+<div>
+  <p>This input element uses the "onclick" event attribute</p>
+  <input id="slider2" type="range" onclick=updateOutput()>
+  <span id="output2" class="sliderValue"><span>
+</div>
+
+<script>
+var x1;
+var x2;
+updateOutput();
+
+function updateOutput() {
+  x1 = document.getElementById("slider1").value;
+  document.getElementById("output1").innerHTML = x1;
+  x2 = document.getElementById("slider2").value;
+  document.getElementById("output2").innerHTML = x2;
+}
+</script>
+
+<h3>References</h3>
+<p>This example uses concepts from:</p>
+<ul>
+  <li>W3Schools Reference on <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">HTML Event Attributes</a>, see Mouse Events section</li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/html/html_form_input_types.asp">HTML Input Types</a></li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_events.asp">JavaScript Events</a> with buttons</li>
+</ul>
+
+</body>
+</html>
