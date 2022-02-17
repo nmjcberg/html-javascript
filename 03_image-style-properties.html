@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  label {
+    font-family: Arial;
+    font-size: 20px;
+  }
+  .sliderValue { 
+    font-weight: bold; 
+    font-family: Arial;
+    font-size: 20px;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+  }
+  .flex-item {
+    width: 400px;
+  }
+  .input-box {
+    padding: 10px 0 10px 0;
+  }
+  </style>
+</head>
+<body>
+
+<h3>Example: Controlling Image Style Properties</h3>
+
+<div class="flex-container">
+<div class="flex-item">
+<div class="input-box">
+  <label for="radiusInput">Border radius:</label>
+  <input id="radiusInput" type="range" min=0 max=200 value=20 onmousemove=updateBorderRadius()>
+  <span id="radiusDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="widthInput">Border width:</label>
+  <input id="widthInput" type="range" min=0 max=10 value=2 onmousemove=updateBorderWidth()>
+  <span id="widthDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="rotationInput">Rotation:</label>
+  <input id="rotationInput" type="range" min=0 max=360 value=0 onmousemove=updateRotation()>
+  <span id="rotationDisplay" class="sliderValue"><span>
+</div>
+</div>
+<div class="flex-item">
+<img src="./images/320px-Puggle_puppy.jpg" id="puppy" style="width: 320px; height:240px; margin:20px">
+</div>
+</div>
+
+<script>
+updateBorderRadius();
+updateBorderWidth();
+updateRotation();
+
+function updateBorderRadius() {
+  var radius;
+  radius = document.getElementById("radiusInput").value;
+  document.getElementById("radiusDisplay").innerHTML = radius+"px";
+  document.getElementById("puppy").style.borderRadius = radius+"px";
+}
+function updateBorderWidth() {
+  var borderWidth;
+  borderWidth = document.getElementById("widthInput").value;
+  document.getElementById("widthDisplay").innerHTML = borderWidth+"px";
+  document.getElementById("puppy").style.border = "solid blue "+borderWidth+"px";
+}
+function updateRotation() {
+  var angle;
+  angle = document.getElementById("rotationInput").value;
+  document.getElementById("rotationDisplay").innerHTML = angle+"deg";
+  document.getElementById("puppy").style.transform = "rotate("+angle+"deg)";
+}
+</script>
+
+<h3>References</h3>
+<p>This example uses concepts from:</p>
+<ul>
+  <li>W3Schools Reference on <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">HTML Event Attributes</a>, see Mouse Events section</li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/html/html_form_input_types.asp">HTML Input Types</a></li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_events.asp">JavaScript Events</a> with buttons</li>
+  <li>Mozilla <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference">CSS Style Properties Reference</a></li>
+</ul>
+
+<h3>Attribution</h3>
+<p><a href="https://commons.wikimedia.org/wiki/File:Puggle_puppy.jpg">Jennagu</a>, Public domain, via Wikimedia Commons</p>
+<a title="Jennagu, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Puggle_puppy.jpg"><img width="128" alt="Puggle puppy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Puggle_puppy.jpg/128px-Puggle_puppy.jpg"></a>
+
+</body>
+</html>
