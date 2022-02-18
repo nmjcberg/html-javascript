@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  label {
+    font-family: Arial;
+    font-size: 20px;
+  }
+  .sliderValue { 
+    font-weight: bold; 
+    font-family: Arial;
+    font-size: 20px;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+  }
+  .flex-item {
+    width: 400px;
+  }
+  .input-box {
+    padding: 10px 0 10px 0;
+  }
+  </style>
+</head>
+<body>
+
+<h3>Example: Controlling Image Filter Functions</h3>
+
+<div class="flex-container">
+<div class="flex-item">
+<div class="input-box">
+  <label for="blurInput">Blur:</label>
+  <input id="blurInput" type="range" min=0 max=10 value=0 onmousemove=updateFilter()>
+  <span id="blurDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="brightnessInput">Brightness:</label>
+  <input id="brightnessInput" type="range" min=0 max=600 value=100 onmousemove=updateFilter()>
+  <span id="brightnessDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="saturationInput">Saturation:</label>
+  <input id="saturationInput" type="range" min=0 max=600 value=100 onmousemove=updateFilter()>
+  <span id="saturationDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="contrastInput">Contrast:</label>
+  <input id="contrastInput" type="range" min=0 max=600 value=100 onmousemove=updateFilter()>
+  <span id="contrastDisplay" class="sliderValue"><span>
+</div>
+<div class="input-box">
+  <label for="hueInput">Hue rotation:</label>
+  <input id="hueInput" type="range" min=0 max=360 value=0 onmousemove=updateFilter()>
+  <span id="hueDisplay" class="sliderValue"><span>
+</div>
+</div>
+<div class="flex-item">
+<img src="./images/320px-Puggle_puppy.jpg" id="puppy" style="width: 320px; height:240px; margin:20px; border-radius:10px">
+</div>
+</div>
+
+<script>
+var blurSize;
+var brightnessValue;
+var saturationValue;
+var contrastValue;
+var hueValue;
+updateFilter();
+
+function updateFilter() {
+  blurSize = document.getElementById("blurInput").value;
+  document.getElementById("blurDisplay").innerHTML = blurSize+"px";
+  
+  brightnessValue = document.getElementById("brightnessInput").value;
+  document.getElementById("brightnessDisplay").innerHTML = brightnessValue+"%";
+  
+  saturationValue = document.getElementById("saturationInput").value;
+  document.getElementById("saturationDisplay").innerHTML = saturationValue+"%";
+  
+  contrastValue = document.getElementById("contrastInput").value;
+  document.getElementById("contrastDisplay").innerHTML = contrastValue+"%";
+  
+  hueValue = document.getElementById("hueInput").value;
+  document.getElementById("hueDisplay").innerHTML = hueValue+"deg";
+  
+  // combine the filter functions
+  // for exampe, element.style.filter = "blur(0px) brightness(100%) saturate(100%) contrast(100%) hueRotate(0deg)";
+  document.getElementById("puppy").style.filter = "blur("+blurSize+"px) brightness("+brightnessValue+"%) saturate("+saturationValue+"%) contrast("+contrastValue+"%) hue-rotate("+hueValue+"deg)";
+}
+</script>
+
+<h3>References</h3>
+<p>This example uses concepts from:</p>
+<ul>
+  <li>W3Schools Reference on <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">CSS 'filter' Property</a></li>
+  <li>W3Schools Reference on <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">HTML Event Attributes</a>, see Mouse Events section</li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/html/html_form_input_types.asp">HTML Input Types</a></li>
+  <li>W3Schools Tutorial on <a href="https://www.w3schools.com/js/js_events.asp">JavaScript Events</a> with buttons</li>
+</ul>
+
+<h3>Attribution</h3>
+<p><a href="https://commons.wikimedia.org/wiki/File:Puggle_puppy.jpg">Jennagu</a>, Public domain, via Wikimedia Commons</p>
+<a title="Jennagu, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Puggle_puppy.jpg"><img width="128" alt="Puggle puppy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Puggle_puppy.jpg/128px-Puggle_puppy.jpg"></a>
+
+</body>
+</html>
